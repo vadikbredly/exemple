@@ -1,0 +1,54 @@
+
+  GET|HEAD        / ............................................................................................................................................. 
+  GET|HEAD        _debugbar/assets/javascript ....................................................... debugbar.assets.js › Barryvdh\Debugbar › AssetController@js
+  GET|HEAD        _debugbar/assets/stylesheets .................................................... debugbar.assets.css › Barryvdh\Debugbar › AssetController@css
+  DELETE          _debugbar/cache/{key}/{tags?} .............................................. debugbar.cache.delete › Barryvdh\Debugbar › CacheController@delete
+  GET|HEAD        _debugbar/clockwork/{id} ............................................. debugbar.clockwork › Barryvdh\Debugbar › OpenHandlerController@clockwork
+  GET|HEAD        _debugbar/open ........................................................ debugbar.openhandler › Barryvdh\Debugbar › OpenHandlerController@handle
+  POST            _ignition/execute-solution ...................................... ignition.executeSolution › Spatie\LaravelIgnition › ExecuteSolutionController
+  GET|HEAD        _ignition/health-check .................................................. ignition.healthCheck › Spatie\LaravelIgnition › HealthCheckController
+  POST            _ignition/update-config ............................................... ignition.updateConfig › Spatie\LaravelIgnition › UpdateConfigController
+  GET|HEAD        admin/blog/categories ....................................................... blog.admin.categories.index › Blog\Admin\CategoryController@index
+  POST            admin/blog/categories ....................................................... blog.admin.categories.store › Blog\Admin\CategoryController@store
+  GET|HEAD        admin/blog/categories/create .............................................. blog.admin.categories.create › Blog\Admin\CategoryController@create
+  PUT|PATCH       admin/blog/categories/{category} .......................................... blog.admin.categories.update › Blog\Admin\CategoryController@update
+  GET|HEAD        admin/blog/categories/{category}/edit ......................................... blog.admin.categories.edit › Blog\Admin\CategoryController@edit
+  GET|HEAD        api/user ...................................................................................................................................... 
+  GET|HEAD        blog/posts ....................................................................................... blog.posts.index › Blog\PostController@index
+  POST            blog/posts ....................................................................................... blog.posts.store › Blog\PostController@store
+  GET|HEAD        blog/posts/create .............................................................................. blog.posts.create › Blog\PostController@create
+  GET|HEAD        blog/posts/{post} .................................................................................. blog.posts.show › Blog\PostController@show
+  PUT|PATCH       blog/posts/{post} .............................................................................. blog.posts.update › Blog\PostController@update
+  DELETE          blog/posts/{post} ............................................................................ blog.posts.destroy › Blog\PostController@destroy
+  GET|HEAD        blog/posts/{post}/edit ............................................................................. blog.posts.edit › Blog\PostController@edit
+  GET|HEAD        forgot-password ....................................................... password.request › Laravel\Fortify › PasswordResetLinkController@create
+  POST            forgot-password .......................................................... password.email › Laravel\Fortify › PasswordResetLinkController@store
+  GET|HEAD        home .............................................................................................................. home › HomeController@index
+  GET|HEAD        login .............................................................................................. login › Auth\LoginController@showLoginForm
+  POST            login .............................................................................................................. Auth\LoginController@login
+  POST            logout ................................................................................................... logout › Auth\LoginController@logout
+  GET|HEAD        password/confirm ............................................................ password.confirm › Auth\ConfirmPasswordController@showConfirmForm
+  POST            password/confirm ....................................................................................... Auth\ConfirmPasswordController@confirm
+  POST            password/email .............................................................. password.email › Auth\ForgotPasswordController@sendResetLinkEmail
+  GET|HEAD        password/reset ........................................................... password.request › Auth\ForgotPasswordController@showLinkRequestForm
+  POST            password/reset ........................................................................... password.update › Auth\ResetPasswordController@reset
+  GET|HEAD        password/reset/{token} ............................................................ password.reset › Auth\ResetPasswordController@showResetForm
+  GET|HEAD        register .............................................................................. register › Auth\RegisterController@showRegistrationForm
+  POST            register ..................................................................................................... Auth\RegisterController@register
+  POST            reset-password ................................................................ password.update › Laravel\Fortify › NewPasswordController@store
+  GET|HEAD        reset-password/{token} ........................................................ password.reset › Laravel\Fortify › NewPasswordController@create
+  GET|HEAD        sanctum/csrf-cookie ............................................................................... Laravel\Sanctum › CsrfCookieController@show
+  GET|HEAD        two-factor-challenge ...................................... two-factor.login › Laravel\Fortify › TwoFactorAuthenticatedSessionController@create
+  POST            two-factor-challenge .......................................................... Laravel\Fortify › TwoFactorAuthenticatedSessionController@store
+  GET|HEAD        user/confirm-password .................................................................... Laravel\Fortify › ConfirmablePasswordController@show
+  POST            user/confirm-password ................................................ password.confirm › Laravel\Fortify › ConfirmablePasswordController@store
+  GET|HEAD        user/confirmed-password-status ............................... password.confirmation › Laravel\Fortify › ConfirmedPasswordStatusController@show
+  POST            user/confirmed-two-factor-authentication .............. two-factor.confirm › Laravel\Fortify › ConfirmedTwoFactorAuthenticationController@store
+  PUT             user/password .............................................................. user-password.update › Laravel\Fortify › PasswordController@update
+  PUT             user/profile-information .............................. user-profile-information.update › Laravel\Fortify › ProfileInformationController@update
+  POST            user/two-factor-authentication .................................. two-factor.enable › Laravel\Fortify › TwoFactorAuthenticationController@store
+  DELETE          user/two-factor-authentication ............................... two-factor.disable › Laravel\Fortify › TwoFactorAuthenticationController@destroy
+  GET|HEAD        user/two-factor-qr-code ................................................. two-factor.qr-code › Laravel\Fortify › TwoFactorQrCodeController@show
+  GET|HEAD        user/two-factor-recovery-codes ..................................... two-factor.recovery-codes › Laravel\Fortify › RecoveryCodeController@index
+  POST            user/two-factor-recovery-codes ................................................................. Laravel\Fortify › RecoveryCodeController@store
+
