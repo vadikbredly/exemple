@@ -133,7 +133,7 @@ class CategoryController extends BaseController
             'parent_id'     => 'required|integer|exists:blog_categories, id',
         ];
         $validateData = $this->validate($request, $rules);
-        dd( $validateData);*/
+        */
 
         $item = $this->blogCategoryRepository->getEdit($id);
         //$item = BlogCategory::find($id);
