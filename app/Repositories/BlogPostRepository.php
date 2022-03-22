@@ -5,6 +5,7 @@ namespace App\Repositories;
 
 use App\Models\BlogPost as Model;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\DB;
 
 /** class BlogPostRepository
@@ -26,59 +27,47 @@ class BlogPostRepository extends CoreRepository
         return Model::class;
     }
 
-    /** Получить модель для редактирования в админке
+
+    /**
+     * @return LengthAwarePaginator
+     */
+    public function getAllWithPaginate()//: LengthAwarePaginator
+    {
+
+        $columns = [
+            'id',
+            'title',
+            'slug',
+            'is_published',
+            'published_at',
+            'user_id',
+            'category_id',
+        ];
+
+        $result = $this->startConditions()
+            ->select($columns)
+            ->orderBy('id', 'desc')
+           // ->with(['category', 'user'])
+               ->with([
+            //можно так
+                'category' => function ($query){
+                   $query->select(['id', 'title']);
+                },
+               //или так
+               'user:id,name',
+               ])
+            ->paginate(25);
+
+        return $result;
+    }
+
+    /**
+     * Получить модель для редактирования в админке
      *
      * @param int $id
-     *
-     * @return Model
+     * @return mixed
      */
     public function getEdit(int $id){
         return $this->startConditions()->find($id);
     }
-
-    /**
-     * Получить список категорий для вывода в выподающем списке
-     *
-     * @return Collection
-     *
-     */
-    public function getForComboBox(){
-       // return $this->startConditions()->all();
-        $colums = implode(',',[
-            'id',
-            'CONCAT (id, ". ", title) AS id_title',
-        ]);
-      /*  $result[] = $this->startConditions()->all();
-          $result[] = $this
-            ->startConditions()
-            ->select(DB::raw('blog_categories.*, CONCAT (id, ". ", title) AS title_id '))
-            ->toBase()
-            ->get();*/
-        $result = $this
-            ->startConditions()
-            ->selectRaw($colums)
-            ->toBase()
-            ->get();
-
-  //      dd($result->first());
-        return $result;
-    }
-
-    /**
-     * @param null $perPage
-     * @return mixed
-     */
-    public function getAllWithPaginate($perPage = null){
-
-        $fields = ['id', 'title', 'parent_id'];
-
-        $result = $this
-            ->startConditions()
-            ->select($fields)
-            ->paginate($perPage);
-
-        return $result;
-    }
-
-
 }
