@@ -31,15 +31,22 @@ Route::group(['namespace' => 'App\Http\Controllers\Blog', 'prefix' => 'blog'], f
 /*Route::resource('rest', App\Http\Controllers\RestTestController::class);*/
     //->names('restTest'); можно давать свои имена
 
+//Админка блога
 $groupData = [
     'namespace' => 'App\Http\Controllers\Blog\Admin',
     'prefix' =>     'admin/blog',
 ];
 Route::group($groupData, function (){
 
-    $mathods = ['index', 'edit', 'update', 'store', 'create'];
+    //BlogCategory
+    $methods = ['index', 'edit', 'update', 'store', 'create'];
     Route::resource('categories', App\Http\Controllers\Blog\Admin\CategoryController::class)
-        ->only($mathods)
+        ->only($methods)
         ->names('blog.admin.categories');
+
+    //BlogPost
+    Route::resource('posts', App\Http\Controllers\Blog\Admin\PostController::class)
+        ->except(['show'])
+        ->names('blog.admin.posts');
 
 });
