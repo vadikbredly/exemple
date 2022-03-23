@@ -62,8 +62,6 @@ class BlogPostRepository extends CoreRepository
     }
 
     /**
-     * Получить модель для редактирования в админке
-     *
      * @param int $id
      * @return mixed
      */
